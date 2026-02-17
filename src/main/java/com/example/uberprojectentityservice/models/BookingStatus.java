@@ -2,7 +2,7 @@ package com.example.uberprojectentityservice.models;
 
 import jakarta.persistence.Table;
 
-@Table
+
 public enum BookingStatus {
 
     //TODO [Reverse Engineering] generate columns from DB

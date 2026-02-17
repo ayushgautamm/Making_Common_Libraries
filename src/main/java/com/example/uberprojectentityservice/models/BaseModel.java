@@ -20,14 +20,10 @@ public abstract class BaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Identity means auto_increment
     private Long id;
 
+    @CreatedDate
+    @Column(updatable = false)
+    private Date createdAt;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) // this annotation tells spring about the formats of Date object to be stored in DB
-    @CreatedDate // this annotation tells spring that only handle it for object creation
-    protected Date createdAt;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate // this annotation tells spring that only handle it for object update
-    protected Date updatedAt;
+    @LastModifiedDate
+    private Date updatedAt;
 }

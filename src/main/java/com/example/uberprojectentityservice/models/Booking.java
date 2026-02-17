@@ -12,6 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Builder
+@Table(indexes = {
+        @Index(columnList = "driver_id")
+})
 public class Booking extends BaseModel {
 
     @Enumerated(EnumType.STRING)
@@ -26,6 +29,10 @@ public class Booking extends BaseModel {
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
 
+    @OneToOne
+    private  ExactLocation startLocation;
+    @OneToOne
+    private  ExactLocation endLocation;
 
 
 }

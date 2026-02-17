@@ -3,6 +3,7 @@ package com.example.uberprojectentityservice.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -27,5 +28,9 @@ public class Passenger extends  BaseModel{
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
+    @OneToOne
+    private ExactLocation lastKnownLocation;
+    @OneToOne
+    private ExactLocation home;
 
 }
